@@ -36,6 +36,7 @@ struct UnitView: View {
               }
                  // .frame(width: 63 ,height: 29)
        .padding(.vertical)
+       .padding(.horizontal,3)
               }
 
     }

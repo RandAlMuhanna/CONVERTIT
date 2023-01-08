@@ -53,6 +53,13 @@ struct UnitConverterView: View {
                                 UnitView(viewModel: viewModel, selectedUnit: $selectedUnits)
                             }
                         }
+                        
+                        .onChange(of: selectedUnits){ newSelection in
+                            let units = unitType[newSelection.rawValue]
+                            inputUnit = units[0]
+                            outputUnit = units[1]
+
+                        }
                     }
                     .frame(width:350 ,height:100)
                     
@@ -120,7 +127,7 @@ struct UnitConverterView: View {
                                             .focused($inputFocused)
                                             .overlay(
                                             RoundedRectangle(cornerRadius: 10)
-                                              .stroke(.black , lineWidth: 1)
+                                                .stroke(.black , lineWidth: 0.5)
                                             )
                                             .padding()
                                             .padding(.horizontal,20)
@@ -144,12 +151,6 @@ struct UnitConverterView: View {
                         ToolbarItemGroup(placement: .keyboard) {
                             Button("Done"){
                                 inputFocused = false
-
-                            }
-                            .onChange(of: WhichUnitIsSelected){ newSelection in
-                                let units = unitType[newSelection]
-                                inputUnit = units[0]
-                                outputUnit = units[1]
 
                             }
                         }
