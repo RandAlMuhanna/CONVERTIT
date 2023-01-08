@@ -25,7 +25,7 @@ struct UnitView: View {
                      // .padding(.vertical ,10)
                       .overlay(
                       RoundedRectangle(cornerRadius: 10)
-                        .stroke(.black , lineWidth: 1)
+                        .stroke(.black , lineWidth: 0.5)
                       )
                       .font(.subheadline)
                           .foregroundColor(.black)

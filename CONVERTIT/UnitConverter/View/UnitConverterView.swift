@@ -13,7 +13,7 @@ struct UnitConverterView: View {
     @State var WhichUnitIsSelected = 0
     @State var selectedUnits : UnitConverterViewModel = .distance
     
-    // Input from user (input and output unit its a dimension and gave it init value)
+    // Input from user (input and output unit its a dimension and gave it init value
     @State private var input = 0.0
     @State private var inputUnit: Dimension = UnitLength.meters
     @State private var outputUnit: Dimension = UnitLength.kilometers
@@ -60,13 +60,19 @@ struct UnitConverterView: View {
                         HStack(spacing:25){
                             
                             Picker("From", selection: $inputUnit){
-                                ForEach(unitType[WhichUnitIsSelected], id: \.self){
+                                ForEach(unitType[selectedUnits.rawValue], id: \.self){
                                     Text(formatter.string(from: $0).capitalized)
 
                                 }
                             }.accentColor(.black)
                             .frame(width: 113 , height: 39)
-                                .background(RoundedRectangle(cornerRadius: 10 ).fill(Color.gray).opacity(0.2))
+                                .background(RoundedRectangle(cornerRadius: 10 ).fill(Color.white).opacity(0.5))
+                                .shadow(
+                                                color: Color.gray.opacity(0.5),
+                                                radius: 5,
+                                                x: -8,
+                                                y: 8
+                                             )
                             
                             Button {
                                 //
@@ -77,16 +83,21 @@ struct UnitConverterView: View {
 
                             
                             Picker("To", selection: $outputUnit){
-                                ForEach(unitType[WhichUnitIsSelected], id: \.self){
+                                ForEach(unitType[selectedUnits.rawValue], id: \.self){
                                     Text(formatter.string(from: $0).capitalized)
-
+                                   
                                 }
                             }.accentColor(.black)
                             .frame(width: 113 , height: 39)
+                            .background(RoundedRectangle(cornerRadius: 10 )
+                                .fill(Color.white).opacity(0.5))
                             
-                            .background(RoundedRectangle(cornerRadius: 10 ).fill(Color.gray).opacity(0.2))
-                            
-                            
+                            .shadow(
+                                            color: Color.gray.opacity(0.5),
+                                            radius: 5,
+                                            x: -8,
+                                            y: 8
+                                         )
                             Button {
                                 //
                             } label: {
@@ -111,6 +122,7 @@ struct UnitConverterView: View {
                                             RoundedRectangle(cornerRadius: 10)
                                               .stroke(.black , lineWidth: 1)
                                             )
+                                            .padding()
                                             .padding(.horizontal,20)
 
                                     }
@@ -126,18 +138,29 @@ struct UnitConverterView: View {
                     
                 }.frame(width: 367 , height: 300)
                     .background(RoundedRectangle(cornerRadius: 10).fill(Color.gray.opacity(0.1)))
+                
+                
+                    .toolbar{
+                        ToolbarItemGroup(placement: .keyboard) {
+                            Button("Done"){
+                                inputFocused = false
+
+                            }
+                            .onChange(of: WhichUnitIsSelected){ newSelection in
+                                let units = unitType[newSelection]
+                                inputUnit = units[0]
+                                outputUnit = units[1]
+
+                            }
+                        }
+
+                    }
             }
             
             .navigationTitle("Measurements ")
             .navigationBarTitleDisplayMode(.inline)
         }
 
-        
-      
-
-            
-            
-        
     }
     init() {
            formatter = MeasurementFormatter()
