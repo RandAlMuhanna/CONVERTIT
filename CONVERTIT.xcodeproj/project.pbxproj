@@ -15,6 +15,7 @@
 		A4BE50DD2966C1F100E8CF83 /* UnitConverterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BE50DC2966C1F100E8CF83 /* UnitConverterViewModel.swift */; };
 		A4BE50E02966C55900E8CF83 /* UnitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BE50DF2966C55900E8CF83 /* UnitView.swift */; };
 		A4BE50E6296C17F000E8CF83 /* NumbersKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BE50E5296C17F000E8CF83 /* NumbersKeyboard.swift */; };
+		C4080934296C561F00D561F5 /* Curncy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4080933296C561F00D561F5 /* Curncy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		A4BE50DC2966C1F100E8CF83 /* UnitConverterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitConverterViewModel.swift; sourceTree = "<group>"; };
 		A4BE50DF2966C55900E8CF83 /* UnitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitView.swift; sourceTree = "<group>"; };
 		A4BE50E5296C17F000E8CF83 /* NumbersKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbersKeyboard.swift; sourceTree = "<group>"; };
+		C4080933296C561F00D561F5 /* Curncy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Curncy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,9 +64,6 @@
 				A4BE50D52966C17200E8CF83 /* UnitConverter */,
 				A4BE50C72966C06000E8CF83 /* CONVERTITApp.swift */,
 				A4BE50C92966C06000E8CF83 /* ContentView.swift */,
-				C40808B12966C18100D561F5 /* Curncy.swift */,
-				C408092F296B619F00D561F5 /* CardView.swift */,
-				C4080931296B63FF00D561F5 /* CardViewbig.swift */,
 				A4BE50CB2966C06100E8CF83 /* Assets.xcassets */,
 				A4BE50CD2966C06100E8CF83 /* Preview Content */,
 			);
@@ -84,6 +83,7 @@
 			children = (
 				A4BE50D72966C1A200E8CF83 /* View */,
 				A4BE50D62966C1A100E8CF83 /* ViewModel */,
+				C4080933296C561F00D561F5 /* Curncy.swift */,
 			);
 			path = UnitConverter;
 			sourceTree = "<group>";
@@ -176,6 +176,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4080934296C561F00D561F5 /* Curncy.swift in Sources */,
 				A4BE50CA2966C06000E8CF83 /* ContentView.swift in Sources */,
 				A4BE50DB2966C1E300E8CF83 /* UnitConverterView.swift in Sources */,
 				A4BE50E02966C55900E8CF83 /* UnitView.swift in Sources */,
