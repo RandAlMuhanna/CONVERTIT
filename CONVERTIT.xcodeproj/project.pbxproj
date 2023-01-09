@@ -14,6 +14,7 @@
 		A4BE50DB2966C1E300E8CF83 /* UnitConverterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BE50DA2966C1E300E8CF83 /* UnitConverterView.swift */; };
 		A4BE50DD2966C1F100E8CF83 /* UnitConverterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BE50DC2966C1F100E8CF83 /* UnitConverterViewModel.swift */; };
 		A4BE50E02966C55900E8CF83 /* UnitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BE50DF2966C55900E8CF83 /* UnitView.swift */; };
+		A4BE50E6296C17F000E8CF83 /* NumbersKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BE50E5296C17F000E8CF83 /* NumbersKeyboard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		A4BE50DA2966C1E300E8CF83 /* UnitConverterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitConverterView.swift; sourceTree = "<group>"; };
 		A4BE50DC2966C1F100E8CF83 /* UnitConverterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitConverterViewModel.swift; sourceTree = "<group>"; };
 		A4BE50DF2966C55900E8CF83 /* UnitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitView.swift; sourceTree = "<group>"; };
+		A4BE50E5296C17F000E8CF83 /* NumbersKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbersKeyboard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				A4BE50DC2966C1F100E8CF83 /* UnitConverterViewModel.swift */,
+				A4BE50E5296C17F000E8CF83 /* NumbersKeyboard.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 				A4BE50E02966C55900E8CF83 /* UnitView.swift in Sources */,
 				A4BE50C82966C06000E8CF83 /* CONVERTITApp.swift in Sources */,
 				A4BE50DD2966C1F100E8CF83 /* UnitConverterViewModel.swift in Sources */,
+				A4BE50E6296C17F000E8CF83 /* NumbersKeyboard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

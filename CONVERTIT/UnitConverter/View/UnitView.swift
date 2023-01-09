@@ -10,11 +10,13 @@ import SwiftUI
 struct UnitView: View {
     
     var viewModel : UnitConverterViewModel
+    @State var isSelected: Bool = false
     @Binding var selectedUnit: UnitConverterViewModel
 
     var body: some View {
         
-        Button {
+        Button{
+            
                   withAnimation {
                       selectedUnit = viewModel
                   }
@@ -22,16 +24,14 @@ struct UnitView: View {
                   
                       Text(viewModel.unitType)
                       .padding()
-                     // .padding(.vertical ,10)
                       .overlay(
                       RoundedRectangle(cornerRadius: 10)
                         .stroke(.black , lineWidth: 0.5)
                       )
-                      .font(.subheadline)
-                          .foregroundColor(.black)
+                          
                         
-                  
-//                     Spacer()
+                         
+//
                       
               }
                  // .frame(width: 63 ,height: 29)
