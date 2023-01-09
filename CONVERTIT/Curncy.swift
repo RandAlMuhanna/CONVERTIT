@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Curncy: View {
     struct CustomColor{
-        static let CurryGray = Color("CurryGray")
+        static let Tercoaz = Color("Tercoaz")
     }
     @State var showingDetail = false
     //  @State var han = 1
@@ -97,7 +97,7 @@ struct Curncy: View {
                                     }
                                 }
                                 .labelsHidden()
-                                .frame(width: 70)
+                               // .frame(width: 70)
                                 
                                 
                                 
@@ -133,7 +133,7 @@ struct Curncy: View {
                                     
                                 }) {
                                     
-                                    Image(systemName: "arrow.left.arrow.right")
+                                    Image(systemName: "arrow.left.arrow.right").foregroundColor(CustomColor.Tercoaz)
                                     
                                 }.buttonStyle(.plain)
                                 
@@ -158,11 +158,12 @@ struct Curncy: View {
                                     
                                 }) {
                                     
-                                    Image(systemName: "plus")
+                                    Image(systemName: "plus").foregroundColor(CustomColor.Tercoaz)
                                     
                                 }.buttonStyle(.plain)
                                 Spacer()
-                                TextField("enter amount", text: $amount).keyboardType(.decimalPad).padding()
+                                TextField("enter amount", text: $amount).keyboardType(.decimalPad).font(.system(size: 24)).padding().padding([.leading],95)
+                                    
                                 //  Stepper("\(amount)", value: $amount, in :1...100000).padding()
                                 
                                 
@@ -176,10 +177,10 @@ struct Curncy: View {
                                     
                                 }) {
                                     
-                                    Image(systemName: "minus")
+                                    Image(systemName: "minus").foregroundColor(CustomColor.Tercoaz)
                                     
                                 }.buttonStyle(.plain).frame(width: 20, height: 20)
-                            }
+                            }.frame().border(.black)
                         }
                         
                         
@@ -196,7 +197,7 @@ struct Curncy: View {
                             HStack{
                                 Text("\(amount) \(curr[selectedCurr])").padding()
                                 Spacer()
-                                Image (systemName: "equal")
+                                Image (systemName: "equal").foregroundColor(CustomColor.Tercoaz)
                                 Spacer()
                                 Text("\(convert(amount)) \(curr[selectedCurr2])").padding()
                                 
@@ -210,7 +211,7 @@ struct Curncy: View {
                             HStack{
                                 Text("\(amount2) \(curr[selectedCurr])").padding()
                                 Spacer()
-                                Image (systemName: "equal")
+                                Image (systemName: "equal").foregroundColor(CustomColor.Tercoaz)
                                 Spacer()
                                 Text("\(convert(amount2)) \(curr[selectedCurr2])").padding()
                                 
@@ -224,7 +225,7 @@ struct Curncy: View {
                             HStack{
                                 Text("\(amount3) \(curr[selectedCurr])").padding()
                                 Spacer()
-                                Image (systemName: "equal")
+                                Image (systemName: "equal").foregroundColor(CustomColor.Tercoaz)
                                 Spacer()
                                 Text("\(convert(amount3)) \(curr[selectedCurr2])").padding()
                                 
@@ -239,7 +240,7 @@ struct Curncy: View {
                             HStack{
                                 Text("\(amount4) \(curr[selectedCurr])").padding()
                                 Spacer()
-                                Image (systemName: "equal")
+                                Image (systemName: "equal").foregroundColor(CustomColor.Tercoaz)
                                 Spacer()
                                 Text("\(convert(amount4)) \(curr[selectedCurr2])").padding()
                                 
@@ -252,7 +253,7 @@ struct Curncy: View {
                             HStack{
                                 Text("\(amount5) \(curr[selectedCurr])").padding()
                                 Spacer()
-                                Image (systemName: "equal")
+                                Image (systemName: "equal").foregroundColor(CustomColor.Tercoaz)
                                 Spacer()
                                 Text("\(convert(amount5)) \(curr[selectedCurr2])").padding()
                                 
@@ -265,7 +266,7 @@ struct Curncy: View {
                             HStack{
                                 Text("\(amount6) \(curr[selectedCurr])").padding()
                                 Spacer()
-                                Image (systemName: "equal")
+                                Image (systemName: "equal").foregroundColor(CustomColor.Tercoaz)
                                 Spacer()
                                 Text("\(convert(amount6)) \(curr[selectedCurr2])").padding()
                                 
