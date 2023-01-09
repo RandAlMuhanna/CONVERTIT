@@ -63,7 +63,9 @@ struct UnitConverterView: View {
                                 
                                     .font(.subheadline)
                                 //To change the color and font of selected units
-                                    .fontWeight(selectedUnits == viewModel ? .bold : .regular)
+                                   // .fontWeight(selectedUnits == viewModel ? .bold : .regular)
+                                
+                                
                                     .foregroundColor(selectedUnits == viewModel ? Color("AppColor") : Color.black)
                             }
                         }
