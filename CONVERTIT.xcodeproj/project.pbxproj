@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A4238729296C8A6A00615874 /* Splash.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4238728296C8A6A00615874 /* Splash.swift */; };
 		A4BE50C82966C06000E8CF83 /* CONVERTITApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BE50C72966C06000E8CF83 /* CONVERTITApp.swift */; };
 		A4BE50CA2966C06000E8CF83 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BE50C92966C06000E8CF83 /* ContentView.swift */; };
 		A4BE50CC2966C06100E8CF83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4BE50CB2966C06100E8CF83 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A4238728296C8A6A00615874 /* Splash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Splash.swift; sourceTree = "<group>"; };
 		A4BE50C42966C06000E8CF83 /* CONVERTIT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CONVERTIT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4BE50C72966C06000E8CF83 /* CONVERTITApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CONVERTITApp.swift; sourceTree = "<group>"; };
 		A4BE50C92966C06000E8CF83 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -42,6 +44,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A4238727296C8A5F00615874 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				A4238728296C8A6A00615874 /* Splash.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
 		A4BE50BB2966C06000E8CF83 = {
 			isa = PBXGroup;
 			children = (
@@ -61,6 +71,7 @@
 		A4BE50C62966C06000E8CF83 /* CONVERTIT */ = {
 			isa = PBXGroup;
 			children = (
+				A4238727296C8A5F00615874 /* Splash */,
 				A4BE50D52966C17200E8CF83 /* UnitConverter */,
 				A4BE50C72966C06000E8CF83 /* CONVERTITApp.swift */,
 				A4BE50C92966C06000E8CF83 /* ContentView.swift */,
@@ -178,6 +189,7 @@
 			files = (
 				C4080934296C561F00D561F5 /* Curncy.swift in Sources */,
 				A4BE50CA2966C06000E8CF83 /* ContentView.swift in Sources */,
+				A4238729296C8A6A00615874 /* Splash.swift in Sources */,
 				A4BE50DB2966C1E300E8CF83 /* UnitConverterView.swift in Sources */,
 				A4BE50E02966C55900E8CF83 /* UnitView.swift in Sources */,
 				A4BE50C82966C06000E8CF83 /* CONVERTITApp.swift in Sources */,
@@ -239,7 +251,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -293,7 +305,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -311,7 +323,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CONVERTIT/Preview Content\"";
-				DEVELOPMENT_TEAM = X5NV3GTA2R;
+				DEVELOPMENT_TEAM = 6V3379368L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -341,7 +353,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CONVERTIT/Preview Content\"";
-				DEVELOPMENT_TEAM = X5NV3GTA2R;
+				DEVELOPMENT_TEAM = 6V3379368L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

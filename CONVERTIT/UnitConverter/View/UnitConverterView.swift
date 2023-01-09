@@ -16,13 +16,16 @@ struct UnitConverterView: View {
     @State var selectedUnits : UnitConverterViewModel = .distance
 
     // Input from user (input and output unit its a dimension and gave it init value)
-    @State private var input = 0.0
+    @State private var input = 1.0
+    
     @State private var inputUnit: Dimension = UnitLength.meters
     @State private var outputUnit: Dimension = UnitLength.kilometers
     @State private var selectedBTN : Bool = false
     @FocusState private var inputFocused: Bool
     
     @State private var SwapUnit: Dimension?
+    
+    @State private var Plus = 0
     
     let unitType = [
         [UnitLength.meters , UnitLength.miles , UnitLength.kilometers , UnitLength.yards , UnitLength.feet],
@@ -60,11 +63,11 @@ struct UnitConverterView: View {
                             
                             ForEach(UnitConverterViewModel.allCases , id: \.rawValue) { viewModel in
                                 UnitView(viewModel: viewModel, selectedUnit: $selectedUnits)
-                                
-                                    .font(.subheadline)
+                            
+                                   // .font(.subheadline)
+                                    
                                 //To change the color and font of selected units
-                                   // .fontWeight(selectedUnits == viewModel ? .bold : .regular)
-                                
+                                    .font(selectedUnits == viewModel ? .footnote.weight(.bold) : .footnote)
                                 
                                     .foregroundColor(selectedUnits == viewModel ? Color("AppColor") : Color.black)
                             }
@@ -135,22 +138,45 @@ struct UnitConverterView: View {
                     } .frame(width: 50)
                     
                     
-                    VStack(alignment: .leading) {
+                    HStack{
                         
-                        
+                        Button {
+                            
+                            input -= 1
+                            
+                        } label: {
+                            Image(systemName: "minus")
+                               
+                                .foregroundColor(Color("AppColor"))
+
+                        } .padding()
+
                         TextField("Amount", value: $input, format:
                                 .number)
-                        .frame(width: 340,height: 39)
                         .textFieldStyle(.plain)
                         .focused($inputFocused)
                         .keyboardType(.decimalPad)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(.black , lineWidth: 0.5)
-                        )
-                        .padding()
-                        .padding(.horizontal,20)
+                        .multilineTextAlignment(.center)
+                        
+                    
+                        Button {
+                            input += 1
+                       }
+                    label: {
+                    Image(systemName: "plus")
+                    .foregroundColor(Color("AppColor"))
+                        
                     }
+                    .padding()
+                        
+                        
+                    }
+                    //TextField and + - Frame
+                    .frame(width: 340,height: 39)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(.black , lineWidth: 0.5))
+                    .padding()
                     
                 }.frame(width: 367 , height: 255)
                     .background(RoundedRectangle(cornerRadius: 10).fill(Color.white.opacity(0.8)))
@@ -159,7 +185,7 @@ struct UnitConverterView: View {
                     
                     HStack(spacing: 80) {
                         
-                        
+
                         HStack{
                             
                             Text(input.formatted())
@@ -192,8 +218,15 @@ struct UnitConverterView: View {
             .navigationBarTitleDisplayMode(.inline)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.gray.opacity(0.1))
+            
+            
         }
-        
+//        .onChange(of: input) { _ in
+//            let NewAmount = input
+//
+//
+//        }
+//
         
     }
     init() {
