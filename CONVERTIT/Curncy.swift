@@ -12,14 +12,19 @@ struct Curncy: View {
         static let CurryGray = Color("CurryGray")
     }
     @State var showingDetail = false
-    @State var han = 1
-    @State  var inc: Double = 0.0
+    //  @State var han = 1
+    //  @State  var inc: Double = 0.0
     @State private var selectedCurr = 0
     @State private var selectedCurr2 = 1
-    @State private var selectedCurr3 = 0
-    @State private var selectedCurr4 = 1
+    @State private var Swap = 0
+    //  @State private var selectedCurr4 = 1
     //  @State private var selectedCurr = ""
     @State var amount : String = "1.00"
+    @State var amount2 : String = "2.00"
+    @State var amount3 : String = "3.00"
+    @State var amount4 : String = "4.00"
+    @State var amount5 : String = "5.00"
+    @State var amount6 : String = "6.00"
     //  @State var amount = 1
     @State  private var itemse = 0
     @State var itemse1 = 1
@@ -48,19 +53,19 @@ struct Curncy: View {
         }
         
         //   conversion = inc
-        inc = inc + conversion
+        //  inc = inc + conversion
         
         return String(format: "%.2f" , conversion)
     }
     
-    func increses(_ increses: Double) -> Double{
-        
-        while han <= 5 {
-            inc = inc + 10
-            han = han + 1
-        }
-        return Double(inc)
-    }
+    //  func increses(_ increses: Double) -> Double{
+    
+    //   while han <= 5 {
+    //      inc = inc + 10
+    //     han = han + 1
+    //    }
+    //   return Double(inc)
+    // }
     
     
     
@@ -74,102 +79,222 @@ struct Curncy: View {
     
     
     var body: some View {
-        ZStack{
+        NavigationView{
+            //   ZStack{
             //   background(Color.CustomColor.CurryGray)
-            Color("CurryGray").edgesIgnoringSafeArea(.all)
+            //  Color("CurryGray").edgesIgnoringSafeArea(.all)
+            
             VStack{
-                ZStack{
-                    CardView()
-                    VStack{
-                        
-                        HStack{
-                            Picker(selection: $selectedCurr, label: Text("")) {
-                                ForEach(0 ..< curr.count) {index in
-                                    Text(self.curr[index]).tag(index)
-                                }
-                            }.frame(width: 80, height: 2).padding()
+                List{
+                    Section{
+                        // CardView()
+                        VStack{
                             
-                            Button(action: {
-                                self.showingDetail.toggle()
-                                
-                                if self.showingDetail {
-                                    
-                                    selectedCurr  = selectedCurr3
-                                    selectedCurr2 = selectedCurr4
-                                    selectedCurr3 = selectedCurr2
-                                    selectedCurr4 = selectedCurr
-                                    
+                            HStack{
+                                Picker(selection: $selectedCurr, label: Text("")) {
+                                    ForEach(0 ..< curr.count) {index in
+                                        Text(self.curr[index]).tag(index)
+                                    }
                                 }
-                                //  if (showingDetail == true){
-                                //    self.selectedCurr =  selectedCurr3
-                                //   self.selectedCurr2 = selectedCurr4
-                                //   self.selectedCurr = selectedCurr4
-                                //    self.selectedCurr2 = selectedCurr3
-                                
-                                //  }
+                                .labelsHidden()
+                                .frame(width: 70)
                                 
                                 
-                            }) {
                                 
-                                Image(systemName: "arrow.left.arrow.right")
+                                
+                                Spacer()
+                                
+                                Button(action: {
+                                    Swap = selectedCurr
+                                    selectedCurr = selectedCurr2
+                                    selectedCurr2 = Swap
+                                    
+                                    //                                    self.showingDetail.toggle()
+                                    //
+                                    //                                    if self.showingDetail {
+                                    //                                        selectedCurr = selectedCurr3
+                                    //                                        selectedCurr = selectedCurr2
+                                    //                                        selectedCurr3 = selectedCurr2
+                                    //
+                                    //                                     //   selectedCurr  = selectedCurr3
+                                    //                                      //  selectedCurr2 = selectedCurr4
+                                    //                                      //  selectedCurr3 = selectedCurr2
+                                    //                                      //  selectedCurr4 = selectedCurr
+                                    //
+                                    //                                    }
+                                    //  if (showingDetail == true){
+                                    //    self.selectedCurr =  selectedCurr3
+                                    //   self.selectedCurr2 = selectedCurr4
+                                    //   self.selectedCurr = selectedCurr4
+                                    //    self.selectedCurr2 = selectedCurr3
+                                    
+                                    //  }
+                                    
+                                    
+                                }) {
+                                    
+                                    Image(systemName: "arrow.left.arrow.right")
+                                    
+                                }.buttonStyle(.plain)
+                                
+                                Spacer()
+                                
+                                Picker(selection: $selectedCurr2, label: Text("")) {
+                                    ForEach(0 ..< curr.count) {index in
+                                        Text(self.curr[index]).tag(index)
+                                    }
+                                }//.frame(width: 80, height: 2).padding()
+                                .labelsHidden()
                                 
                             }
                             
-                            Picker(selection: $selectedCurr2, label: Text("")) {
-                                ForEach(0 ..< curr.count) {index in
-                                    Text(self.curr[index]).tag(index)
-                                }
-                            }.frame(width: 80, height: 2).padding()
                             
-                            //  Picker("", selection: $selectedCurr2) {
-                            //     ForEach(curr, id: \.self) {
-                            //   Text($0)
-                            //  }
-                            // }.frame(width: 80, height: 2).padding()
                             
+                            HStack{
+                                Button(action: {
+                                    let incmount = Double(amount) ?? 0.0
+                                    amount = ("\(incmount + 1)")
+                                    
+                                    
+                                }) {
+                                    
+                                    Image(systemName: "plus")
+                                    
+                                }.buttonStyle(.plain)
+                                Spacer()
+                                TextField("enter amount", text: $amount).keyboardType(.decimalPad).padding()
+                                //  Stepper("\(amount)", value: $amount, in :1...100000).padding()
+                                
+                                
+                                
+                                Spacer()
+                                
+                                Button(action: {
+                                    let incmount = Double(amount) ?? 0.0
+                                    amount = ("\(incmount - 1)")
+                                    
+                                    
+                                }) {
+                                    
+                                    Image(systemName: "minus")
+                                    
+                                }.buttonStyle(.plain).frame(width: 20, height: 20)
+                            }
                         }
                         
                         
-                        // Picker(selection: $itemse, label: Text("from")){
-                        //    ForEach (0..<curr.count){index in Text(self.curr[index])}.tag(index)
-                        //  }
-                        
-                        // Menu ("op") {
-                        //      ForEach(curr, id: \.self){ curr in
-                        //   Button(curr, action: placeOrder)
-                        //  Button("Adjust Order", action: adjustOrder)
-                        //  Button("Cancel", action: cancelOrder)
-                        //   }
-                        //   }.frame(width: 100, height: 70).border(.black).cornerRadius(10)
-                        
-                        
-                        TextField("enter amount", text: $amount).keyboardType(.decimalPad).padding()
-                        //  Stepper("\(amount)", value: $amount, in :1...100000).padding()
                     }
                     
-                }
-                
-                ZStack{
-                    CardViewbig()
-                    VStack{
-                        HStack{
-                            Text("\(amount) \(curr[selectedCurr])").padding()
-                            Spacer()
-                            Image (systemName: "equal")
-                            Spacer()
-                            Text("\(convert(amount)) \(curr[selectedCurr2])").padding()
+                    
+                    
+                    
+                    
+                    
+                    
+                    Section{
+                        VStack{
+                            HStack{
+                                Text("\(amount) \(curr[selectedCurr])").padding()
+                                Spacer()
+                                Image (systemName: "equal")
+                                Spacer()
+                                Text("\(convert(amount)) \(curr[selectedCurr2])").padding()
+                                
+                            }
+                            
+                            //  Divider()
                             
                         }
                         
-                        Divider()
+                        VStack{
+                            HStack{
+                                Text("\(amount2) \(curr[selectedCurr])").padding()
+                                Spacer()
+                                Image (systemName: "equal")
+                                Spacer()
+                                Text("\(convert(amount2)) \(curr[selectedCurr2])").padding()
+                                
+                                
+                            }
+                            
+                            
+                        }
                         
+                        VStack{
+                            HStack{
+                                Text("\(amount3) \(curr[selectedCurr])").padding()
+                                Spacer()
+                                Image (systemName: "equal")
+                                Spacer()
+                                Text("\(convert(amount3)) \(curr[selectedCurr2])").padding()
+                                
+                                
+                            }
+                            
+                            //       Divider()
+                            
+                        }
+                        
+                        VStack{
+                            HStack{
+                                Text("\(amount4) \(curr[selectedCurr])").padding()
+                                Spacer()
+                                Image (systemName: "equal")
+                                Spacer()
+                                Text("\(convert(amount4)) \(curr[selectedCurr2])").padding()
+                                
+                                
+                            }
+                            
+                        }
+                        
+                        VStack{
+                            HStack{
+                                Text("\(amount5) \(curr[selectedCurr])").padding()
+                                Spacer()
+                                Image (systemName: "equal")
+                                Spacer()
+                                Text("\(convert(amount5)) \(curr[selectedCurr2])").padding()
+                                
+                                
+                            }
+                            
+                        }
+                        
+                        VStack{
+                            HStack{
+                                Text("\(amount6) \(curr[selectedCurr])").padding()
+                                Spacer()
+                                Image (systemName: "equal")
+                                Spacer()
+                                Text("\(convert(amount6)) \(curr[selectedCurr2])").padding()
+                                
+                                
+                            }
+                            
+                        }
+                        
+                        //Text ("\(increses(inc))")
                     }
-                }.padding()
-                
-                //     Text ("\(increses(inc))")
+                }.listStyle(.insetGrouped)
                 
                 
-            }
+                //  Text ("\(increses(inc))")
+                
+                
+            }.navigationTitle("Curruncy")
+            //}.navigationTitle("Curruncy")
+                .navigationBarTitleDisplayMode(.inline)
+            
+            
+        }.onChange(of: amount){ _ in
+            let newAmount = Double(amount) ?? 0.0
+            
+            amount2 = "\(newAmount + 1)"
+            amount3 = "\(newAmount + 2)"
+            amount4 = "\(newAmount + 3)"
+            amount5 = "\(newAmount + 4)"
+            amount6 = "\(newAmount + 5)"
         }
         
     }
