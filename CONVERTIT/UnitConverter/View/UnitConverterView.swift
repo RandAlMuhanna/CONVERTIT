@@ -136,7 +136,7 @@ struct UnitConverterView: View {
                     VStack(alignment: .leading) {
                         
                         
-                        Stepper("Amount", value: $input, format:
+                        TextField("Amount", value: $input, format:
                                 .number)
                         .frame(width: 340,height: 39)
                         .textFieldStyle(.plain)
