@@ -11,7 +11,7 @@ import SwiftUI
 struct CONVERTITApp: App {
     var body: some Scene {
         WindowGroup {
-            UnitConverterView()
+            Splash()
         }
     }
 }

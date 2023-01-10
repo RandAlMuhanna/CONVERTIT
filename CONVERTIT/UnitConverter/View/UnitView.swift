@@ -35,8 +35,10 @@ struct UnitView: View {
                       
               }
                  // .frame(width: 63 ,height: 29)
-       .padding(.vertical)
-       .padding(.horizontal,3)
+//              .padding(.leading)
+//              .padding(.trailing)
+//      .padding(.vertical)
+//      .padding(.horizontal,0.5)
               }
 
     }

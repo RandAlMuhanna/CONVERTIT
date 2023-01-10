@@ -18,15 +18,22 @@ enum UnitConverterViewModel: Int , CaseIterable {
     
     var unitType: String {
            
-           switch self {
-           case .distance: return "Distance"
-           case .mass: return "Mass"
-           case .temperature: return "Temperature"
-           case .time: return "Time"
-           case .volume: return "Volume"
+        get {
+                   switch(self) {
+                   case .distance:
+                       return LocalizableStrings.distanceUnit
+                   case .mass:
+                       return LocalizableStrings.massUnit
+                   case .temperature:
+                       return LocalizableStrings.tempUnit
+                   case .time:
+                       return LocalizableStrings.timeUnit
+                   case .volume:
+                       return LocalizableStrings.volumeUnit
 
-
-           }
+                  
+                   }
+               }
        }
     
     var dimensions: [Dimension] {

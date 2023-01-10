@@ -19,7 +19,7 @@ struct Splash: View {
 
     var body: some View {
         if isActive {
-            UnitConverterView()
+            MainPageView()
         }
         else{
             ZStack{

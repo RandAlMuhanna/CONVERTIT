@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  CONVERTIT
+
+  Created by Rand AlMuhanna on 17/06/1444 AH.
+  
+*/
+"Units Converter" = "تحويل وحدات" ;
+"Currency Converter" = "تحويل عملات" ;
+
+
+"Distance" = "مسافة" ;
+"Mass" = "كتلة" ;
+"Temperature" = "حرارة" ;
+"Time" = "وقت" ;
+"Volume" = "كمية" ;
+
