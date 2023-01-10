@@ -22,10 +22,10 @@ Provide help to people to convert converting measurements or currency in easy an
 - Project meet the functionals requirements
 - Project team satisfaction target is achieved
 # Tools
-[![SwiftUI][SwiftUI-img]][SwiftUI-url]   [![Sketch][Sketch-img]][Sketch-url]
+[![SwiftUI][SwiftUI-img]][SwiftUI-url]   [![Sketch][Sketch-img]][Sketch-url]. [![Figma][Figma-img]][Figma-url]
 
 # Team
- #### PowerPuff
+ #### Coders
  <a href="https://www.linkedin.com/in/randalmuhanna/">Rand AlMuhanna</a> - Haneen Behery 
  
 <!-- MARKDOWN LINKS & IMAGES -->
@@ -36,4 +36,5 @@ Provide help to people to convert converting measurements or currency in easy an
 [Sketch-img]: https://img.shields.io/badge/-Sketch-yellow
 [Sketch-url]: https://www.sketch.com
 
-
+[Figma-img] : 
+[Figma-url] : https://www.figma.com/files/recent?fuid=1183682951682002731
