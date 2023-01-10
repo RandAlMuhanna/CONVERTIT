@@ -206,7 +206,8 @@ struct UnitConverterView: View {
                                     
                                     Text("=") .foregroundColor(Color("AppColor"))
                                     
-                                    Text(result(input: input, inputUnit: inputUnit, outputUnit: outputUnit).capitalized)                                }.padding(.bottom,30)
+                                    Text(result(input: input, inputUnit: inputUnit, outputUnit: outputUnit).capitalized)                                }
+                                    
                                
                             
                         }//.frame(width: 367 , height: 300)
@@ -229,7 +230,7 @@ struct UnitConverterView: View {
                                     Text(result(input: input2, inputUnit: inputUnit, outputUnit: outputUnit).capitalized)
                                 }
                             
-                        }.padding(.bottom,30)
+                        }
                         VStack() {
                             
                             Spacer()
@@ -248,7 +249,7 @@ struct UnitConverterView: View {
                                 Text(result(input: input3, inputUnit: inputUnit, outputUnit: outputUnit).capitalized)
                             }
                         
-                    }.padding(.bottom,30)
+                    }
                         
                         VStack() {
                             Spacer()
@@ -267,7 +268,7 @@ struct UnitConverterView: View {
                                 
                                 Text(result(input: input4, inputUnit: inputUnit, outputUnit: outputUnit).capitalized)                            }
                         
-                    }.padding(.bottom,30)
+                    }
                         
                         VStack() {
                             
@@ -286,7 +287,7 @@ struct UnitConverterView: View {
                                 
                                 Text(result(input: input5, inputUnit: inputUnit, outputUnit: outputUnit).capitalized)                            }
                         
-                    }.padding(.bottom,30)
+                    }
                         VStack() {
                             
                             Spacer()
@@ -303,12 +304,13 @@ struct UnitConverterView: View {
                                 
                                 
                                 Text(result(input: input6, inputUnit: inputUnit, outputUnit: outputUnit).capitalized)
-                            }.padding(.bottom,30)
+                            }
                         
                     }
                         
-                    }
-                    
+                    } .padding(.horizontal,4)
+                        .padding(.vertical,4)
+                        .padding(.bottom,30)
                     
                     //                    .toolbar{
                     //                        ToolbarItemGroup(placement: .keyboard) {

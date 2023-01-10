@@ -9,16 +9,6 @@ import SwiftUI
 
 
 
-//protocol Localizable : Identifiable , CaseIterable , RawRepresentable where RawValue: StringProtocol{}
-//
-//
-//extension Localizable {
-//    var localized : String {
-//        NSLocalizedString(String(RawValue), comment: "")
-//    }
-//    var id : String(self.rawValue)
-//}
-
 
 struct LocalizableStrings {
     static let unitConverter  = NSLocalizedString("Units Converter", comment: "")
