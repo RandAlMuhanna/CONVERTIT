@@ -38,5 +38,5 @@ Provide help to people to convert converting measurements or currency in easy an
 [Sketch-img]: https://img.shields.io/badge/-Sketch-yellow
 [Sketch-url]: https://www.sketch.com
 
-[Figma-img] : 
+[Figma-img] : https://img.shields.io/badge/-figma-purple
 [Figma-url] : https://www.figma.com
