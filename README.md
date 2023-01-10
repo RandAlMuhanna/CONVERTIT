@@ -14,9 +14,11 @@ Build an app that facilitates converting currencies and measurements.
 
 ### Problem Statment
 Provide help to people to convert converting measurements or currency in easy and clear way
+
 # User stories
 - The user wants to Convert Units measurements.
 - The user wants to Convert Currencies.
+- 
 # Success Criteria
 - Project is completed on time
 - Project meet the functionals requirements
@@ -37,4 +39,4 @@ Provide help to people to convert converting measurements or currency in easy an
 [Sketch-url]: https://www.sketch.com
 
 [Figma-img] : 
-[Figma-url] : https://www.figma.com/files/recent?fuid=1183682951682002731
+[Figma-url] : https://www.figma.com
