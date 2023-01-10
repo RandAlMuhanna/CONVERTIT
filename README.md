@@ -13,7 +13,7 @@ CONVERTIT is an iOS app allows people to convert currencies and measurements.
 Build an app that facilitates converting currencies and measurements.
 
 ### Problem Statment
-Provide help to people to convert converting measurements or currency in easy and clear way
+Provide help to people to convert converting in easy and clear way .
 
 # User stories
 - The user wants to Convert Units measurements.
