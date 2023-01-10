@@ -26,7 +26,7 @@ Provide help to people to convert converting measurements or currency in easy an
 
 
 # Tools
-[![SwiftUI][SwiftUI-img]][SwiftUI-url]   [![Sketch][Sketch-img]][Sketch-url]  [![Figma][Figma-img]][Figma-url]
+[![SwiftUI][SwiftUI-img]][SwiftUI-url]   [![Sketch][Sketch-img]][Sketch-url]  [![Sketch][Sketch-img]][Sketch-url]  
 
 # Team
  #### Coders
@@ -40,5 +40,5 @@ Provide help to people to convert converting measurements or currency in easy an
 [Sketch-img]: https://img.shields.io/badge/-Sketch-yellow
 [Sketch-url]: https://www.sketch.com
 
-[Figma-img] : https://img.shields.io/badge/-Figma-purple
-[Figma-url] : https://www.figma.com
+[Sketch-img]: https://img.shields.io/badge/-Sketch-yellow
+[Sketch-url]: https://www.sketch.com
