@@ -26,6 +26,7 @@ struct MainPageView: View {
     
     
     @State private var selectedItem: ConverterScrollerViewModel = .units
+    
     @Namespace var animation
     
     var body: some View {
@@ -34,6 +35,7 @@ struct MainPageView: View {
             
             
        Spacer()
+            
             ScrollerBetweenOptions
             
 
@@ -56,12 +58,13 @@ extension MainPageView {
  
     var ScrollerBetweenOptions : some View {
         
+        
         VStack{
             
             
             HStack{
-               
                 
+
                 ForEach(ConverterScrollerViewModel.allCases , id: \.rawValue) { item in
                 VStack {
                     Text(item.type)
@@ -72,8 +75,9 @@ extension MainPageView {
                     
                     if selectedItem == item {
                         Capsule()
-                            .frame(height: 2)
+                            .frame(height: 4)
                             .foregroundColor(Color("AppColor"))
+                        
                         // Custom animation effect
                             .matchedGeometryEffect(id: "Filter", in: animation)
                     }else {
@@ -94,7 +98,8 @@ extension MainPageView {
                 
                 
                 // Divider under the two options
-            } .overlay(Divider().offset(x:0 , y:15))
+            }
+            .overlay(Divider().offset(x:0 , y: 17))
             
             
             if selectedItem == .units {
@@ -103,6 +108,8 @@ extension MainPageView {
                 CurrenciesConverterView()
             }
         }
+        
+        
     }
     
 }

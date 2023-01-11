@@ -45,19 +45,13 @@ struct UnitConverterView: View {
     // A formatter that provides localized representations of units and measurements
     let formatter: MeasurementFormatter
     
-        
-        
-    // Haneen There is the result
-    
-
-    
 
     var body: some View {
         
-        NavigationView {
+       
             
             
-            VStack {
+        VStack(alignment: .center) {
                 List{
                     Section{
                         VStack(spacing : 15){
@@ -71,12 +65,17 @@ struct UnitConverterView: View {
                                         UnitView(viewModel: viewModel, selectedUnit: $selectedUnits)
                                         
                                         //To change the color and font of selected units
-                                            .font(selectedUnits == viewModel ? .footnote.weight(.bold) : .footnote)
+                            .font(selectedUnits == viewModel ? .footnote.weight(.bold) : .footnote)
                                         
                                             .foregroundColor(selectedUnits == viewModel ? Color("AppColor") : Color.black)
                                     }
-                                }.padding()
-                                
+//                                    Spacer()
+
+                                }
+
+                                .padding(.vertical)
+                                .padding(.horizontal)
+
                                 .onChange(of: selectedUnits) { newSelection in
                                     let units = unitType[newSelection.rawValue]
                                     inputUnit = units[0]
@@ -89,12 +88,18 @@ struct UnitConverterView: View {
                             
                             HStack(spacing:35){
                                 
+//                                Spacer()
+
                                 Picker("", selection: $inputUnit){
                                     ForEach(unitType[selectedUnits.rawValue], id: \.self){
                                         Text(formatter.string(from: $0).capitalized)
-                                        
+                                            .font(.footnote.weight(.bold))
+
                                     }
-                                }.accentColor(.black)
+                                }
+                              
+                                .pickerStyle(.menu)
+                                .accentColor(.black)
                                     .frame(width: 113 , height: 39)
                                     .background(RoundedRectangle(cornerRadius: 10 ).fill(Color.white).opacity(0.5))
                                     .shadow(
@@ -103,7 +108,7 @@ struct UnitConverterView: View {
                                         x: -8,
                                         y: 8 )
                                     .labelsHidden()
-                                
+
                                 Button {
                                     
                                     //Swap between inputUnit And OutputUnit
@@ -116,13 +121,17 @@ struct UnitConverterView: View {
                                         .foregroundColor(Color("AppColor"))
                                 }.buttonStyle(.plain)
                                 
-                                
+
                                 Picker("", selection: $outputUnit){
                                     ForEach(unitType[selectedUnits.rawValue], id: \.self){
                                         Text(formatter.string(from: $0).capitalized)
-                                        
+                                            .font(.footnote.weight(.bold))
+
                                     }
-                                }.accentColor(.black)
+                                }
+
+                                .pickerStyle(.menu)
+                                .accentColor(.black)
                                     .frame(width: 113 , height: 39)
                                     .background(RoundedRectangle(cornerRadius: 10 )
                                         .fill(Color.white).opacity(0.5))
@@ -132,7 +141,11 @@ struct UnitConverterView: View {
                                         radius: 5,
                                         x: -8,
                                         y: 8 )
+                                
                                     .labelsHidden()
+//                                Spacer()
+
+
                             //    Button{
                                     //
                               //  } label: {
@@ -141,11 +154,14 @@ struct UnitConverterView: View {
                                     
                               //  }
                                 
-                           } .frame(width: 50)
+//                                Spacer()
+}
+                            .frame(width: 50)
                             
                             
                             HStack{
-                                
+                                Spacer()
+
                                 Button {
                                     
                                     input -= 1
@@ -155,7 +171,7 @@ struct UnitConverterView: View {
                                     
                                         .foregroundColor(Color("AppColor"))
                                     
-                                } .buttonStyle(.plain)
+                                } .padding(.horizontal).buttonStyle(.plain)
                                     .padding()
                                 
                                 TextField("Amount", value: $input, format:
@@ -173,47 +189,54 @@ struct UnitConverterView: View {
                                 Image(systemName: "plus")
                                     .foregroundColor(Color("AppColor"))
                                 
-                            }.buttonStyle(.plain)
+                            }.padding(.horizontal).buttonStyle(.plain)
                             .padding()
                                 
-                                
+                                Spacer()
+
                             }
                             //TextField and + - Frame
-                            .frame(width: 318,height: 39)
+                            .frame(width: 310,height: 39)
                             .overlay(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(.black , lineWidth: 0.5))
                             .padding()
                             
-                        }.frame(width: 367 , height: 255)
+                        }
+//                        .frame(height: 230)
                             .background(RoundedRectangle(cornerRadius: 10).fill(Color.white.opacity(0.8)))
                     }
+                 //   .frame(height: 220)
+                  
                     
                     Section{
                      
                             
-                            VStack {
+                        VStack(alignment: .center) {
                                 Spacer()
                                 
-                                HStack(spacing: 70){
+                            HStack(spacing: 70){
+                                
                                     
-                                    HStack{
+                                HStack {
                                         Text(input.formatted())
                                         Text(inputUnit.id.capitalized)
+                                            
                                     }
                                     
                                     
                                     
                                     Text("=") .foregroundColor(Color("AppColor"))
                                     
-                                    Text(result(input: input, inputUnit: inputUnit, outputUnit: outputUnit).capitalized)                                }
-                                    
-                               
-                            
-                        }//.frame(width: 367 , height: 300)
+                                    Text(result(input: input, inputUnit: inputUnit, outputUnit: outputUnit).capitalized)
+                                }
+                            } 
+                        .font(.footnote.weight(.bold))
+
+                        //.frame(width: 367 , height: 300)
                            // .background(RoundedRectangle(cornerRadius: 10).fill(Color.white.opacity(0.8)))
                                                     
-                            VStack() {
+                            VStack(alignment: .center) {
                                 
                                 Spacer()
                                 HStack(spacing: 70){
@@ -231,7 +254,7 @@ struct UnitConverterView: View {
                                 }
                             
                         }
-                        VStack() {
+                        VStack(alignment: .center) {
                             
                             Spacer()
                             HStack(spacing: 70){
@@ -251,7 +274,7 @@ struct UnitConverterView: View {
                         
                     }
                         
-                        VStack() {
+                        VStack(alignment: .center) {
                             Spacer()
                             
                             HStack(spacing: 70){
@@ -270,7 +293,7 @@ struct UnitConverterView: View {
                         
                     }
                         
-                        VStack() {
+                        VStack(alignment: .center){
                             
                             Spacer()
                             HStack(spacing: 70){
@@ -288,7 +311,7 @@ struct UnitConverterView: View {
                                 Text(result(input: input5, inputUnit: inputUnit, outputUnit: outputUnit).capitalized)                            }
                         
                     }
-                        VStack() {
+                        VStack(alignment: .center) {
                             
                             Spacer()
                             HStack(spacing: 70){
@@ -308,30 +331,39 @@ struct UnitConverterView: View {
                         
                     }
                         
-                    } .padding(.horizontal,4)
-                        .padding(.vertical,4)
-                        .padding(.bottom,30)
+                    } 
+                   // .scaledToFill()
+                    .font(.custom("footnote", size: 14))
+
+                    .padding(.leading,18)
+                    .padding(.horizontal,4)
+                    .padding(.vertical,4)
+                    .padding(.bottom,30)
                     
-                    //                    .toolbar{
-                    //                        ToolbarItemGroup(placement: .keyboard) {
-                    //                            Button("Done"){
-                    //                                inputFocused = false
-                    //
-                    //                            }
-                    //                        }
-                    //
-                    //                    }
-                }.listStyle(.insetGrouped)
-                
+                      
+                   
+                }
+                .listStyle(.insetGrouped)
+
+
 //                .navigationTitle("Measurements ")
 //                .navigationBarTitleDisplayMode(.inline)
 //                .frame(maxWidth: .infinity, maxHeight: .infinity)
 //                .background(Color.gray.opacity(0.1))
                 
                 
+        }                      .toolbar{
+            ToolbarItemGroup(placement: .keyboard) {
+                Button("Done"){
+                    inputFocused = false
+
+                }
             }
-        }.onChange(of: input){ _ in
-          //  let newAmount = Double(amount) ?? 0.0
+
+        }
+        
+        
+        .onChange(of: input){ _ in
             
             input2 = input2 + 1
             input3 = input3 + 2
@@ -341,12 +373,7 @@ struct UnitConverterView: View {
             
             
         }
-//        .onChange(of: input) { _ in
-//            let NewAmount = input
-//
-//
-//        }
-//
+
         
     }
     init() {

@@ -5,4 +5,13 @@
   Created by Rand AlMuhanna on 17/06/1444 AH.
   
 */
+
 "Units Converter" = "Units Converter" ;
+"Currency Converter" = "Currency Converter";
+
+
+"Distance" = "Distance" ;
+"Mass" = "Mass" ;
+"Temperature" = "Temperature" ;
+"Time" = "Time" ;
+"Volume" = "Volume" ;

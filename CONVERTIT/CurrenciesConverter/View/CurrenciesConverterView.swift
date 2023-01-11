@@ -88,7 +88,9 @@ struct CurrenciesConverterView: View {
                                                  ForEach(0 ..< curr.count) {index in
                                                      Text(self.curr[index]).tag(index)
                                                  }
-                                             }.accentColor(.black)
+                                             }                                .pickerStyle(.menu)
+
+                                             .accentColor(.black)
                                                  .frame(width: 113 , height: 39)
                                                  .background(RoundedRectangle(cornerRadius: 10 )
                                                     .fill(Color.white).opacity(0.5))
@@ -145,7 +147,9 @@ struct CurrenciesConverterView: View {
                                                  ForEach(0 ..< curr.count) {index in
                                                      Text(self.curr[index]).tag(index)
                                                  }
-                                             }.accentColor(.black)
+                                             }                                .pickerStyle(.menu)
+
+                                             .accentColor(.black)
                                                  .frame(width: 113 , height: 39)
                                                  .background(RoundedRectangle(cornerRadius: 10 )
                                                     .fill(Color.white).opacity(0.5))
@@ -186,7 +190,7 @@ struct CurrenciesConverterView: View {
                                              
                                              
                                              
-                                             Spacer()
+                                            // Spacer()
                                              
                                              Button(action: {
                                                  let incmount = Double(amount) ?? 0.0
@@ -206,7 +210,7 @@ struct CurrenciesConverterView: View {
                                                 .stroke(.black , lineWidth: 0.5))
                                          .padding()
                                          
-                                     }.frame(width: 367 , height: 190)
+                                     }.frame(height: 190)
                              //.background(RoundedRectangle(cornerRadius: 10).fill(Color.white.opacity(0.8)))
                          
                          

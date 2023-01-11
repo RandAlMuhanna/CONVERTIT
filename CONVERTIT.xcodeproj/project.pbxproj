@@ -28,6 +28,7 @@
 		A423872F296D481D00615874 /* MainPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageView.swift; sourceTree = "<group>"; };
 		A4238734296D4D5F00615874 /* CurrenciesConverterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesConverterView.swift; sourceTree = "<group>"; };
 		A423873B296D503600615874 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A423873E296D7E3400615874 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A4BE50C42966C06000E8CF83 /* CONVERTIT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CONVERTIT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4BE50C72966C06000E8CF83 /* CONVERTITApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CONVERTITApp.swift; sourceTree = "<group>"; };
 		A4BE50C92966C06000E8CF83 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -258,6 +259,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				A423873B296D503600615874 /* ar */,
+				A423873E296D7E3400615874 /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
