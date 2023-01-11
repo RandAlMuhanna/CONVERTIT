@@ -24,6 +24,10 @@ Provide help to people to convert converting in easy and clear way .
 - Project meet the functionals requirements
 - Project team satisfaction target is achieved
 
+# Languages
+- Arabic
+- English
+
 
 # Tools
 [![SwiftUI][SwiftUI-img]][SwiftUI-url]   [![Sketch][Sketch-img]][Sketch-url]  [![Figma][Figma-img]][Figma-url]  
