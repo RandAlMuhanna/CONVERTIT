@@ -59,8 +59,8 @@ extension MainPageView {
     var ScrollerBetweenOptions : some View {
         
         
-        VStack{
-            
+        // To remove extra space on header
+        VStack(spacing :0){
             
             HStack{
                 
@@ -83,11 +83,12 @@ extension MainPageView {
                     }else {
                         Capsule()
                             .foregroundColor(.clear)
-                            .frame(height: 2)
+                            .frame(height: 4)
                         
                     }
                     
                 }
+                    
                 
                 .onTapGesture {
                     withAnimation(.easeInOut) {
@@ -108,8 +109,6 @@ extension MainPageView {
                 CurrenciesConverterView()
             }
         }
-        
-        
     }
     
 }

@@ -1,11 +1,3 @@
-//
-//  CurrenciesConverterView.swift
-//  CONVERTIT
-//
-//  Created by Haneen on 17/06/1444 AH.
-//
-
-
 import SwiftUI
 
 struct CurrenciesConverterView: View {
@@ -22,27 +14,64 @@ struct CurrenciesConverterView: View {
      @State  var Swap = 0
      //  @State private var selectedCurr4 = 1
      //  @State private var selectedCurr = ""
-     @State var amount : String = "1"
-     @State var amount2 : String = "2.00"
-     @State var amount3 : String = "3.00"
-     @State var amount4 : String = "4.00"
-     @State var amount5 : String = "5.00"
-     @State var amount6 : String = "6.00"
+    
+    @FocusState private var inputFocused: Bool
+
+    @State var amount = 1.00
+   
+    
+  //  @State var amount = 1.00
+   // @State var amount : String = "1.00"
+    @State var amount2  = 2.00
+    @State var amount3  = 3.00
+    @State var amount4  = 4.00
+    @State var amount5  = 5.00
+    @State var amount6  = 6.00
+    
+ //    @State var amount : String = "1.00"
+    //@State var amount2 : String = "2.00"
+   //  @State var amount3 : String = "3.00"
+   //  @State var amount4 : String = "4.00"
+   //  @State var amount5 : String = "5.00"
+    // @State var amount6 : String = "6.00"
+    
+    
      //  @State var amount = 1
      // @State var itemse = 0
      //@State var itemse1 = 1
-     var curr = ["EUR","USD", "SAR", "UAE","EGP", "TRY" ]
+    // var curr = ["EUR","USD", "SAR", "UAE","EGP", "TRY" ]
+    
+    var curr = [NSLocalizedString("EUR", comment: ""),
+                NSLocalizedString("USD", comment: ""),
+                NSLocalizedString("SAR", comment: ""),
+                NSLocalizedString("UAE", comment: ""),
+                NSLocalizedString("EGP", comment: ""),
+                NSLocalizedString("TRY", comment: ""),
+               ]
      
-     func convert(_ convert: String) -> String{
+     func convert(_ convert: Double) -> Double{
          var conversion: Double = 1.0
          
-         let amount = Double(convert) ?? 0.0
+        let amount = Double(convert) ?? 0.0
          let selectedd = curr[selectedCurr]
+         
          let to = curr[selectedCurr2]
          
-         let eurorates = [ "EUR":1.0 ,"USD":1.06, "SAR":4.00, "UAE":3.91, "EGP":28.95, "TRY":19.96]
-         let usdorates = [ "EUR":0.94 ,"USD":1.0, "SAR":3.76, "UAE":3.76, "EGP":27.20, "TRY":18.76]
-         let sarrates = [ "EUR":0.25 ,"USD":0.27, "SAR":1.0, "UAE":0.98, "EGP":7.24, "TRY":4.97]
+         let eurorates = [ "EUR":1.00 ,"USD":1.06, "SAR":4.00, "UAE":3.91, "EGP":28.95, "TRY":19.96]
+         let usdorates = [ "EUR":0.94 ,"USD":1.00, "SAR":3.76, "UAE":3.76, "EGP":27.20, "TRY":18.76]
+         let sarrates = [ "EUR":0.25 ,"USD":0.27, "SAR":1.00, "UAE":0.98, "EGP":7.38, "TRY":5.00]
+         let uaerates = [ "EUR":0.25 ,"USD":0.27, "SAR":1.02, "UAE":1.00, "EGP":7.54, "TRY":5.11]
+         let egprates = [ "EUR":0.034 ,"USD":0.036, "SAR":0.14, "UAE":0.13, "EGP":1.04, "TRY":0.68]
+         let tryrates = [ "EUR":0.050 ,"USD":0.053, "SAR":0.20, "UAE":0.20, "EGP":1.47, "TRY":1.00]
+         
+         
+         let euroratesArabic = [ "يورو":1.00 ,"دولار امريكي":1.06, "ريال سعودي":4.00, "درهم إمراتي":3.91, "جنية مصري":28.95, "ليرة تركية":19.96]
+         let usdoratesArabic = [ "يورو":0.94 ,"دولار امريكي":1.00, "ريال سعودي":3.76, "درهم إمراتي":3.76, "جنية مصري":27.20, "ليرة تركية":18.76]
+         let sarratesArabic = [ "يورو":0.25 ,"دولار امريكي":0.27, "ريال سعودي":1.00, "درهم إمراتي":0.98, "جنية مصري":7.38, "ليرة تركية":5.00]
+         let uaeratesArabic = [ "يورو":0.25 ,"دولار امريكي":0.27, "ريال سعودي":1.02, "درهم إمراتي":1.00, "جنية مصري":7.54, "ليرة تركية":5.11]
+         let egpratesArabic = [ "يورو":0.034 ,"دولار امريكي":0.036, "ريال سعودي":0.14, "درهم إمراتي":0.13, "جنية مصري":1.04, "ليرة تركية":0.68]
+         let tryratesArabic = [ "يورو":0.050 ,"دولار امريكي":0.053, "ريال سعودي":0.20, "درهم إمراتي":0.20, "جنية مصري":1.47, "ليرة تركية":1.00]
+         
          
          switch (selectedd){
          case "EUR":
@@ -51,6 +80,24 @@ struct CurrenciesConverterView: View {
              conversion = amount * (usdorates[to] ?? 0.0)
          case "SAR":
              conversion = amount * (sarrates[to] ?? 0.0)
+         case "UAE":
+             conversion = amount * (uaerates[to] ?? 0.0)
+         case "EGP":
+             conversion = amount * (egprates[to] ?? 0.0)
+         case "TRY":
+             conversion = amount * (tryrates[to] ?? 0.0)
+         case "يورو":
+             conversion = amount * (euroratesArabic[to] ?? 0.0)
+         case "دولار امريكي":
+             conversion = amount * (usdoratesArabic[to] ?? 0.0)
+         case "ريال سعودي":
+             conversion = amount * (sarratesArabic[to] ?? 0.0)
+         case "درهم إمراتي":
+             conversion = amount * (uaeratesArabic[to] ?? 0.0)
+         case "جنية مصري":
+             conversion = amount * (egpratesArabic[to] ?? 0.0)
+         case "ليرة تركية":
+             conversion = amount * (tryratesArabic[to] ?? 0.0)
          default:
              print("error")
          }
@@ -58,7 +105,8 @@ struct CurrenciesConverterView: View {
          //   conversion = inc
          //  inc = inc + conversion
          
-         return String(format: "%.2f" , conversion)
+         return Double(conversion)
+        // return String(format: "%.2f" , conversion)
      }
      
      //  func increses(_ increses: Double) -> Double{
@@ -71,7 +119,7 @@ struct CurrenciesConverterView: View {
      // }
        
      var body: some View {
-         NavigationView{
+      
              //   ZStack{
              //   background(Color.CustomColor.CurryGray)
              
@@ -88,9 +136,8 @@ struct CurrenciesConverterView: View {
                                                  ForEach(0 ..< curr.count) {index in
                                                      Text(self.curr[index]).tag(index)
                                                  }
-                                             }                                .pickerStyle(.menu)
-
-                                             .accentColor(.black)
+                                             }.pickerStyle(.menu)
+                                            .accentColor(.black)
                                                  .frame(width: 113 , height: 39)
                                                  .background(RoundedRectangle(cornerRadius: 10 )
                                                     .fill(Color.white).opacity(0.5))
@@ -102,10 +149,7 @@ struct CurrenciesConverterView: View {
                                                     y: 8 )
                                                  .labelsHidden()
                                              // .frame(width: 70)
-                                             
-                                             
-                                             
-                                             
+                                            
                                         //    Spacer()
                                              
                                              Button(action: {
@@ -113,33 +157,13 @@ struct CurrenciesConverterView: View {
                                                  selectedCurr = selectedCurr2
                                                  selectedCurr2 = Swap
                                                  
-                                                 //                                    self.showingDetail.toggle()
-                                                 //
-                                                 //                                    if self.showingDetail {
-                                                 //                                        selectedCurr = selectedCurr3
-                                                 //                                        selectedCurr = selectedCurr2
-                                                 //                                        selectedCurr3 = selectedCurr2
-                                                 //
-                                                 //                                     //   selectedCurr  = selectedCurr3
-                                                 //                                      //  selectedCurr2 = selectedCurr4
-                                                 //                                      //  selectedCurr3 = selectedCurr2
-                                                 //                                      //  selectedCurr4 = selectedCurr
-                                                 //
-                                                 //                                    }
-                                                 //  if (showingDetail == true){
-                                                 //    self.selectedCurr =  selectedCurr3
-                                                 //   self.selectedCurr2 = selectedCurr4
-                                                 //   self.selectedCurr = selectedCurr4
-                                                 //    self.selectedCurr2 = selectedCurr3
-                                                 
-                                                 //  }
-                                                 
+                                 
                                                  
                                              }) {
                                                  
                                                  Image(systemName: "arrow.left.arrow.right").foregroundColor(CustomColor.Tercoaz)
                                                  
-                                             }.buttonStyle(.plain)
+                                             }.buttonStyle(.plain) .accessibilityLabel(Text("Switch between 2 countries you picked"))
                                              
                                            //   Spacer()
                                              
@@ -147,9 +171,8 @@ struct CurrenciesConverterView: View {
                                                  ForEach(0 ..< curr.count) {index in
                                                      Text(self.curr[index]).tag(index)
                                                  }
-                                             }                                .pickerStyle(.menu)
-
-                                             .accentColor(.black)
+                                             }   .pickerStyle(.menu)
+                                                 .accentColor(.black)
                                                  .frame(width: 113 , height: 39)
                                                  .background(RoundedRectangle(cornerRadius: 10 )
                                                     .fill(Color.white).opacity(0.5))
@@ -158,8 +181,8 @@ struct CurrenciesConverterView: View {
                                                     color: Color.gray.opacity(0.5),
                                                     radius: 5,
                                                     x: -8,
-                                                    y: 8 )
-                                             
+                                                           y: 8 )
+                                     
                                              //.frame(width: 80, height: 2).padding()
                                                  .labelsHidden()
                                              
@@ -171,18 +194,21 @@ struct CurrenciesConverterView: View {
                                              
                                              Button(action: {
                                                  let incmount = Double(amount) ?? 0.0
-                                                 amount = ("\(incmount + 1)")
+                                                 amount = amount - 1
                                                  
                                                  
                                              }) {
                                                  
-                                                 Image(systemName: "plus").foregroundColor(CustomColor.Tercoaz)
+                                                 Image(systemName: "minus").foregroundColor(Color("AppColor"))
                                                  
-                                             }.padding(.horizontal).buttonStyle(.plain)
+                                             }.accessibilityLabel(Text("Decrease Amount by 1"))
+                                             .padding(.horizontal).buttonStyle(.plain)
                                              //.buttonStyle(.plain)
                                              //    Spacer()
                                              
-                                             TextField("enter amount", text: $amount).keyboardType(.decimalPad)
+                                             TextField("Amount", value: $amount, format: .number)
+                                                 .focused($inputFocused)
+                                                 .keyboardType(.decimalPad)
                                                  .multilineTextAlignment(.center)
                                              
                                              
@@ -190,18 +216,20 @@ struct CurrenciesConverterView: View {
                                              
                                              
                                              
-                                            // Spacer()
-                                             
+                                             Spacer()
                                              Button(action: {
                                                  let incmount = Double(amount) ?? 0.0
-                                                 amount = ("\(incmount - 1)")
+                                                 amount = amount + 1
                                                  
                                                  
                                              }) {
                                                  
-                                                 Image(systemName: "minus").foregroundColor(CustomColor.Tercoaz)
+                                                 Image(systemName: "plus").foregroundColor(Color("AppColor"))
                                                  
-                                             }.padding(.horizontal).buttonStyle(.plain)
+                                             }.accessibilityLabel(Text("Increase Amount by 1"))
+                                             .padding(.horizontal).buttonStyle(.plain)
+                                             
+                                        
                                              //.buttonStyle(.plain).frame(width: 20, height: 20)
                                          }
                                          .frame(width: 310,height: 39)
@@ -210,7 +238,7 @@ struct CurrenciesConverterView: View {
                                                 .stroke(.black , lineWidth: 0.5))
                                          .padding()
                                          
-                                     }.frame(height: 190)
+                                     }.frame(width: 367 , height: 190)
                              //.background(RoundedRectangle(cornerRadius: 10).fill(Color.white.opacity(0.8)))
                          
                          
@@ -220,13 +248,13 @@ struct CurrenciesConverterView: View {
                      Section{
                          VStack{
                              HStack{
-                                 Text("\(amount) \(curr[selectedCurr])").padding()
+                                 Text("\(amount,specifier: "%.2f") \(curr[selectedCurr])").padding()
                                  Spacer()
                                  Image (systemName: "equal").foregroundColor(CustomColor.Tercoaz)
                                  Spacer()
-                                 Text("\(convert(amount)) \(curr[selectedCurr2])").padding()
+                                 Text("\(convert(amount),specifier: "%.2f") \(curr[selectedCurr2])").padding()
                                  
-                             }
+                             } .font(.system(size: 16, weight: .bold, design: .default))
                              
                              //  Divider()
                              
@@ -234,74 +262,137 @@ struct CurrenciesConverterView: View {
                          
                          VStack{
                              HStack{
-                                 Text("\(amount2) \(curr[selectedCurr])").padding()
+                                 Text("\(amount2,specifier: "%.2f") \(curr[selectedCurr])").padding()
                                  Spacer()
                                  Image (systemName: "equal").foregroundColor(CustomColor.Tercoaz)
                                  Spacer()
-                                 Text("\(convert(amount2)) \(curr[selectedCurr2])").padding()
-                                 
+                                 Text("\(convert(amount2),specifier: "%.2f") \(curr[selectedCurr2])").padding()
                                  
                              }
-                             
-                             
+       
                          }
                          
                          VStack{
                              HStack{
-                                 Text("\(amount3) \(curr[selectedCurr])").padding()
+                                 Text("\(amount3,specifier: "%.2f") \(curr[selectedCurr])").padding()
                                  Spacer()
                                  Image (systemName: "equal").foregroundColor(CustomColor.Tercoaz)
                                  Spacer()
-                                 Text("\(convert(amount3)) \(curr[selectedCurr2])").padding()
-                                 
+                                 Text("\(convert(amount3),specifier: "%.2f") \(curr[selectedCurr2])").padding()
                                  
                              }
-                             
-                             //       Divider()
-                             
+       
                          }
                          
                          VStack{
                              HStack{
-                                 Text("\(amount4) \(curr[selectedCurr])").padding()
+                                 Text("\(amount4,specifier: "%.2f") \(curr[selectedCurr])").padding()
                                  Spacer()
                                  Image (systemName: "equal").foregroundColor(CustomColor.Tercoaz)
                                  Spacer()
-                                 Text("\(convert(amount4)) \(curr[selectedCurr2])").padding()
-                                 
+                                 Text("\(convert(amount4),specifier: "%.2f") \(curr[selectedCurr2])").padding()
                                  
                              }
-                             
+       
                          }
                          
                          VStack{
                              HStack{
-                                 Text("\(amount5) \(curr[selectedCurr])").padding()
+                                 Text("\(amount5,specifier: "%.2f") \(curr[selectedCurr])").padding()
                                  Spacer()
                                  Image (systemName: "equal").foregroundColor(CustomColor.Tercoaz)
                                  Spacer()
-                                 Text("\(convert(amount5)) \(curr[selectedCurr2])").padding()
-                                 
+                                 Text("\(convert(amount5),specifier: "%.2f") \(curr[selectedCurr2])").padding()
                                  
                              }
-                             
+       
                          }
-                         
+
                          VStack{
                              HStack{
-                                 Text("\(amount6) \(curr[selectedCurr])").padding()
+                                 Text("\(amount6,specifier: "%.2f") \(curr[selectedCurr])").padding()
                                  Spacer()
                                  Image (systemName: "equal").foregroundColor(CustomColor.Tercoaz)
                                  Spacer()
-                                 Text("\(convert(amount6)) \(curr[selectedCurr2])").padding()
-                                 
+                                 Text("\(convert(amount6),specifier: "%.2f") \(curr[selectedCurr2])").padding()
                                  
                              }
-                             
+       
                          }
+                         
+//                         VStack{
+//                             HStack{
+//                                 Text("\(amount2) \(curr[selectedCurr])").padding()
+//                                 Spacer()
+//                                 Image (systemName: "equal").foregroundColor(CustomColor.Tercoaz)
+//                                 Spacer()
+//                                 Text("\(convert(amount2)) \(curr[selectedCurr2])").padding()
+//
+//
+//                             }
+//
+//
+//                         }
+//
+//                         VStack{
+//                             HStack{
+//                                 Text("\(amount3) \(curr[selectedCurr])").padding()
+//                                 Spacer()
+//                                 Image (systemName: "equal").foregroundColor(CustomColor.Tercoaz)
+//                                 Spacer()
+//                                 Text("\(convert(amount3)) \(curr[selectedCurr2])").padding()
+//
+//
+//                             }
+//
+//                             //       Divider()
+//
+//                         }
+//
+//                         VStack{
+//                             HStack{
+//                                 Text("\(amount4) \(curr[selectedCurr])").padding()
+//                                 Spacer()
+//                                 Image (systemName: "equal").foregroundColor(CustomColor.Tercoaz)
+//                                 Spacer()
+//                                 Text("\(convert(amount4)) \(curr[selectedCurr2])").padding()
+//
+//
+//                             }
+//
+//                         }
+//
+//                         VStack{
+//                             HStack{
+//                                 Text("\(amount5) \(curr[selectedCurr])").padding()
+//                                 Spacer()
+//                                 Image (systemName: "equal").foregroundColor(CustomColor.Tercoaz)
+//                                 Spacer()
+//                                 Text("\(convert(amount5)) \(curr[selectedCurr2])").padding()
+//
+//
+//                             }
+//
+//                         }
+//
+//                         VStack{
+//                             HStack{
+//                                 Text("\(amount6) \(curr[selectedCurr])").padding()
+//                                 Spacer()
+//                                 Image (systemName: "equal").foregroundColor(CustomColor.Tercoaz)
+//                                 Spacer()
+//                                 Text("\(convert(amount6)) \(curr[selectedCurr2])").padding()
+//
+//
+//                             }
+//
+//                         }
                          
                          //Text ("\(increses(inc))")
-                     }
+                     }                .padding()
+
+                                 
+                     .font(.custom("footnote", size: 16))
                  }.listStyle(.insetGrouped)
                  
                  
@@ -309,19 +400,26 @@ struct CurrenciesConverterView: View {
                  
                  
              }
-//             .navigationTitle("Curruncy")
-             //}.navigationTitle("Curruncy")
-                 .navigationBarTitleDisplayMode(.inline)
+             .toolbar{
+                 ToolbarItemGroup(placement: .keyboard) {
+                     Button("Done"){
+                         inputFocused = false
+                         
+                     }
+                 }
+                 
+             }
+       
                 
              
-         }.onChange(of: amount){ _ in
+         .onChange(of: amount){ _ in
              let newAmount = Double(amount) ?? 0.0
              
-             amount2 = "\(newAmount + 1)"
-             amount3 = "\(newAmount + 2)"
-             amount4 = "\(newAmount + 3)"
-             amount5 = "\(newAmount + 4)"
-             amount6 = "\(newAmount + 5)"
+             amount2 = newAmount + 1
+             amount3 = newAmount + 2
+             amount4 = newAmount + 3
+             amount5 = newAmount + 4
+             amount6 = newAmount + 5
          }
          
      }
@@ -336,4 +434,3 @@ struct CurrenciesConverterView_Previews: PreviewProvider {
      CurrenciesConverterView()
  }
 }
-

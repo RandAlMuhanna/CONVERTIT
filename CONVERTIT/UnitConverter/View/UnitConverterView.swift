@@ -10,11 +10,11 @@ import SwiftUI
 
 struct UnitConverterView: View {
     
-
+    
     // To determine which unit is user selected
     @State var WhichUnitIsSelected = 0
     @State var selectedUnits : UnitConverterViewModel = .distance
-
+    
     // Input from user (input and output unit its a dimension and gave it init value)
     @State private var input = 1.00
     @State private var input2 = 2.00
@@ -22,8 +22,6 @@ struct UnitConverterView: View {
     @State private var input4 = 4.00
     @State private var input5 = 5.00
     @State private var input6 = 6.000
-   
-    @State private var inputUnit2: Dimension = UnitLength.meters
     
     @State private var inputUnit: Dimension = UnitLength.meters
     @State private var outputUnit: Dimension = UnitLength.kilometers
@@ -45,321 +43,308 @@ struct UnitConverterView: View {
     // A formatter that provides localized representations of units and measurements
     let formatter: MeasurementFormatter
     
-
+    
     var body: some View {
         
-       
-            
-            
+        
+        
+        
         VStack(alignment: .center) {
-                List{
-                    Section{
-                        VStack(spacing : 15){
+            List{
+                Section{
+                    VStack(spacing : 15){
+                        
+                        // Scroller Header Contain all Units
+                        ScrollView(.horizontal){
                             
-                            // Scroller Header Contain all Units
-                            ScrollView(.horizontal){
+                            HStack(spacing:8){
                                 
-                                HStack(spacing:8){
+                                ForEach(UnitConverterViewModel.allCases , id: \.rawValue) { viewModel in
+                                    UnitView(viewModel: viewModel, selectedUnit: $selectedUnits)
                                     
-                                    ForEach(UnitConverterViewModel.allCases , id: \.rawValue) { viewModel in
-                                        UnitView(viewModel: viewModel, selectedUnit: $selectedUnits)
-                                        
-                                        //To change the color and font of selected units
-                            .font(selectedUnits == viewModel ? .footnote.weight(.bold) : .footnote)
-                                        
-                                            .foregroundColor(selectedUnits == viewModel ? Color("AppColor") : Color.black)
-                                    }
-//                                    Spacer()
-
+                                    //To change the color and font of selected units
+                                        .font(selectedUnits == viewModel ? .footnote.weight(.bold) : .footnote)
+                                    
+                                        .foregroundColor(selectedUnits == viewModel ? Color("AppColor") : Color.black)
                                 }
-
-                                .padding(.vertical)
-                                .padding(.horizontal)
-
-                                .onChange(of: selectedUnits) { newSelection in
-                                    let units = unitType[newSelection.rawValue]
-                                    inputUnit = units[0]
-                                    outputUnit = units[1]
+                                //                                    Spacer()
+                                
+                            }
+                            
+                            .padding(.vertical)
+                            .padding(.horizontal)
+                            
+                            .onChange(of: selectedUnits) { newSelection in
+                                let units = unitType[newSelection.rawValue]
+                                inputUnit = units[0]
+                                outputUnit = units[1]
+                                
+                            }
+                        }
+                        .frame(width:350 ,height:100)
+                        
+                        
+                        HStack(spacing:35){
+                            
+                            //                                Spacer()
+                            
+                            Picker("", selection: $inputUnit){
+                                ForEach(unitType[selectedUnits.rawValue], id: \.self){
+                                    Text(formatter.string(from: $0).capitalized)
+                                        .font(.footnote.weight(.bold))
                                     
                                 }
                             }
-                            .frame(width:350 ,height:100)
                             
+                            .pickerStyle(.menu)
+                            .accentColor(.black)
+                            .frame(width: 113 , height: 39)
+                            .background(RoundedRectangle(cornerRadius: 10 ).fill(Color.white).opacity(0.5))
+                            .shadow(
+                                color: Color.gray.opacity(0.5),
+                                radius: 5,
+                                x: -8,
+                                y: 8 )
+                            .labelsHidden()
                             
-                            HStack(spacing:35){
+                            Button {
                                 
-//                                Spacer()
-
-                                Picker("", selection: $inputUnit){
-                                    ForEach(unitType[selectedUnits.rawValue], id: \.self){
-                                        Text(formatter.string(from: $0).capitalized)
-                                            .font(.footnote.weight(.bold))
-
-                                    }
-                                }
-                              
-                                .pickerStyle(.menu)
-                                .accentColor(.black)
-                                    .frame(width: 113 , height: 39)
-                                    .background(RoundedRectangle(cornerRadius: 10 ).fill(Color.white).opacity(0.5))
-                                    .shadow(
-                                        color: Color.gray.opacity(0.5),
-                                        radius: 5,
-                                        x: -8,
-                                        y: 8 )
-                                    .labelsHidden()
-
-                                Button {
-                                    
-                                    //Swap between inputUnit And OutputUnit
-                                    SwapUnit = inputUnit
-                                    inputUnit = outputUnit
-                                    outputUnit = SwapUnit!
-                                    
-                                } label: {
-                                    Image(systemName: "arrow.left.arrow.right")
-                                        .foregroundColor(Color("AppColor"))
-                                }.buttonStyle(.plain)
+                                //Swap between inputUnit And OutputUnit
+                                SwapUnit = inputUnit
+                                inputUnit = outputUnit
+                                outputUnit = SwapUnit!
                                 
-
-                                Picker("", selection: $outputUnit){
-                                    ForEach(unitType[selectedUnits.rawValue], id: \.self){
-                                        Text(formatter.string(from: $0).capitalized)
-                                            .font(.footnote.weight(.bold))
-
-                                    }
-                                }
-
-                                .pickerStyle(.menu)
-                                .accentColor(.black)
-                                    .frame(width: 113 , height: 39)
-                                    .background(RoundedRectangle(cornerRadius: 10 )
-                                        .fill(Color.white).opacity(0.5))
-                                
-                                    .shadow(
-                                        color: Color.gray.opacity(0.5),
-                                        radius: 5,
-                                        x: -8,
-                                        y: 8 )
-                                
-                                    .labelsHidden()
-//                                Spacer()
-
-
-                            //    Button{
-                                    //
-                              //  } label: {
-                               //     Image(systemName: "mic")
-                                  //      .foregroundColor(Color("AppColor"))
-                                    
-                              //  }
-                                
-//                                Spacer()
-}
-                            .frame(width: 50)
-                            
-                            
-                            HStack{
-                                Spacer()
-
-                                Button {
-                                    
-                                    input -= 1
-                                    
-                                } label: {
-                                    Image(systemName: "minus")
-                                    
-                                        .foregroundColor(Color("AppColor"))
-                                    
-                                } .padding(.horizontal).buttonStyle(.plain)
-                                    .padding()
-                                
-                                TextField("Amount", value: $input, format:
-                                        .number)
-                                .textFieldStyle(.plain)
-                                .focused($inputFocused)
-                                .keyboardType(.decimalPad)
-                                .multilineTextAlignment(.center)
-                                
-                                
-                                Button {
-                                    input += 1
-                                }
-                            label: {
-                                Image(systemName: "plus")
+                            } label: {
+                                Image(systemName: "arrow.left.arrow.right")
                                     .foregroundColor(Color("AppColor"))
-                                
-                            }.padding(.horizontal).buttonStyle(.plain)
-                            .padding()
-                                
-                                Spacer()
-
+                            }.buttonStyle(.plain).accessibilityLabel(Text("Switch between 2 units you picked"))
+                            
+                            
+                            Picker("", selection: $outputUnit){
+                                ForEach(unitType[selectedUnits.rawValue], id: \.self){
+                                    Text(formatter.string(from: $0).capitalized)
+                                        .font(.footnote.weight(.bold))
+                                    
+                                }
                             }
-                            //TextField and + - Frame
-                            .frame(width: 310,height: 39)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(.black , lineWidth: 0.5))
-                            .padding()
+                            
+                            .pickerStyle(.menu)
+                            .accentColor(.black)
+                            .frame(width: 113 , height: 39)
+                            .background(RoundedRectangle(cornerRadius: 10 )
+                                .fill(Color.white).opacity(0.5))
+                            
+                            .shadow(
+                                color: Color.gray.opacity(0.5),
+                                radius: 5,
+                                x: -8,
+                                y: 8 )
+                            
+                            .labelsHidden()
+                    
+                        }
+                        .frame(width: 50)
+                        
+                        
+                        HStack{
+                            Spacer()
+                            
+                            Button(action: {
+                                
+
+                                 input -= 1
+                                
+                                
+                            }) {
+                                
+                                Image(systemName: "minus").foregroundColor(Color("AppColor"))
+                            }
+                            .accessibilityLabel(Text("Decrease Amount by 1"))
+                            .padding(.horizontal).buttonStyle(.plain)
+                                .padding()
+                            
+                            
+                            TextField("Amount", value: $input, format:
+                                    .number)
+                            .textFieldStyle(.plain)
+                            .focused($inputFocused)
+                            .keyboardType(.decimalPad)
+                            .multilineTextAlignment(.center)
+                            
+                            
+                            Button(action: {
+                                
+
+                                 input += 1
+                                
+                                
+                            }) {
+                                
+                                Image(systemName: "plus").foregroundColor(Color("AppColor"))
+                                
+                            }
+                        .accessibilityLabel(Text("Increase Amount by 1"))
+                        .padding(.horizontal).buttonStyle(.plain)
+                                .padding()
+                            
+                            Spacer()
                             
                         }
-//                        .frame(height: 230)
-                            .background(RoundedRectangle(cornerRadius: 10).fill(Color.white.opacity(0.8)))
-                    }
-                 //   .frame(height: 220)
-                  
-                    
-                    Section{
-                     
-                            
-                        VStack(alignment: .center) {
-                                Spacer()
-                                
-                            HStack(spacing: 70){
-                                
-                                    
-                                HStack {
-                                        Text(input.formatted())
-                                        Text(inputUnit.id.capitalized)
-                                            
-                                    }
-                                    
-                                    
-                                    
-                                    Text("=") .foregroundColor(Color("AppColor"))
-                                    
-                                    Text(result(input: input, inputUnit: inputUnit, outputUnit: outputUnit).capitalized)
-                                }
-                            } 
-                        .font(.footnote.weight(.bold))
-
-                        //.frame(width: 367 , height: 300)
-                           // .background(RoundedRectangle(cornerRadius: 10).fill(Color.white.opacity(0.8)))
-                                                    
-                            VStack(alignment: .center) {
-                                
-                                Spacer()
-                                HStack(spacing: 70){
-                                    
-                                    HStack{
-                                        Text(input2.formatted())
-                                        Text(inputUnit.id.capitalized)
-                                    }
-                                    
-                                    
-                                    
-                                    Text("=") .foregroundColor(Color("AppColor"))
-                                    
-                                    Text(result(input: input2, inputUnit: inputUnit, outputUnit: outputUnit).capitalized)
-                                }
-                            
-                        }
-                        VStack(alignment: .center) {
-                            
-                            Spacer()
-                            HStack(spacing: 70){
-                                
-                                HStack{
-                                    Text(input3.formatted())
-                                    Text(inputUnit.id.capitalized)
-                                }
-                                
-                                
-                                
-                                Text("=") .foregroundColor(Color("AppColor"))
-                                
-                                
-                                Text(result(input: input3, inputUnit: inputUnit, outputUnit: outputUnit).capitalized)
-                            }
+                        
+                        //TextField and + - Frame
+                        .frame(width: 310,height: 39)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(.black , lineWidth: 0.5))
+                        .padding()
                         
                     }
-                        
-                        VStack(alignment: .center) {
-                            Spacer()
-                            
-                            HStack(spacing: 70){
-                                
-                                HStack{
-                                    Text(input4.formatted())
-                                    Text(inputUnit.id.capitalized)
-                                }
-                                
-                                
-                                
-                                Text("=") .foregroundColor(Color("AppColor"))
-                                
-                                
-                                Text(result(input: input4, inputUnit: inputUnit, outputUnit: outputUnit).capitalized)                            }
-                        
-                    }
-                        
-                        VStack(alignment: .center){
-                            
-                            Spacer()
-                            HStack(spacing: 70){
-                                
-                                HStack{
-                                    Text(input5.formatted())
-                                    Text(inputUnit.id.capitalized)
-                                }
-                                
-                                
-                                
-                                Text("=") .foregroundColor(Color("AppColor"))
-                                
-                                
-                                Text(result(input: input5, inputUnit: inputUnit, outputUnit: outputUnit).capitalized)                            }
-                        
-                    }
-                        VStack(alignment: .center) {
-                            
-                            Spacer()
-                            HStack(spacing: 70){
-                                
-                                HStack{
-                                    Text(input6.formatted())
-                                    Text(inputUnit.id.capitalized)
-                                }
-                                
-                                
-                                
-                                Text("=") .foregroundColor(Color("AppColor"))
-                                
-                                
-                                Text(result(input: input6, inputUnit: inputUnit, outputUnit: outputUnit).capitalized)
-                            }
-                        
-                    }
-                        
-                    } 
-                   // .scaledToFill()
-                    .font(.custom("footnote", size: 14))
-
-                    .padding(.leading,18)
-                    .padding(.horizontal,4)
-                    .padding(.vertical,4)
-                    .padding(.bottom,30)
-                    
-                      
-                   
+                    //                        .frame(height: 230)
+                    .background(RoundedRectangle(cornerRadius: 10).fill(Color.white.opacity(0.8)))
                 }
-                .listStyle(.insetGrouped)
-
-
-//                .navigationTitle("Measurements ")
-//                .navigationBarTitleDisplayMode(.inline)
-//                .frame(maxWidth: .infinity, maxHeight: .infinity)
-//                .background(Color.gray.opacity(0.1))
+                //   .frame(height: 220)
                 
                 
-        }                      .toolbar{
+                Section{
+                    
+                    VStack{
+                        
+                       
+                            HStack{
+                                Text("\(input,specifier: "%.2f")  \(inputUnit.id)").padding()
+                                    
+
+                                Spacer()
+                                
+                                Image(systemName: "equal").foregroundColor(Color("AppColor"))
+                                Spacer()
+                                
+                                Text(result(input: input, inputUnit: inputUnit, outputUnit: outputUnit).capitalized)
+                                
+                                
+
+
+                            } .font(.system(size: 16, weight: .bold, design: .default))
+
+                            
+
+                        
+                    }
+                    
+                   
+                    
+                    VStack{
+                        
+                        HStack {
+                            
+                            
+                            
+                            Text("\(input2,specifier: "%.2f")  \(inputUnit.id)").padding()
+                            //                                        Text(input.formatted())
+                            //                                        Text(inputUnit.id.capitalized)
+                            Spacer()
+                            
+                            Image(systemName: "equal").foregroundColor(Color("AppColor"))
+                            Spacer()
+                            
+                            Text(result(input: input2, inputUnit: inputUnit, outputUnit: outputUnit).capitalized)
+                        }
+                    }
+                    
+                    VStack{
+                        
+                        HStack {
+                            
+                            
+                            
+                            Text("\(input3,specifier: "%.2f")  \(inputUnit.id)").padding()
+                            //                                        Text(input.formatted())
+                            //                                        Text(inputUnit.id.capitalized)
+                            Spacer()
+                            
+                            Image(systemName: "equal").foregroundColor(Color("AppColor"))
+                            Spacer()
+                            
+                            Text(result(input: input3, inputUnit: inputUnit, outputUnit: outputUnit).capitalized)
+                        }
+                    }
+                    
+                    
+                    VStack{
+                        
+                        HStack {
+                            
+                            
+                            
+                            Text("\(input4,specifier: "%.2f")  \(inputUnit.id)").padding()
+                            //                                        Text(input.formatted())
+                            //                                        Text(inputUnit.id.capitalized)
+                            Spacer()
+                            
+                            Image(systemName: "equal").foregroundColor(Color("AppColor"))
+                            Spacer()
+                            
+                            Text(result(input: input4, inputUnit: inputUnit, outputUnit: outputUnit).capitalized)
+                        }
+                    }
+                    
+                    
+                    VStack{
+                        
+                        HStack {
+                            
+                            
+                            
+                            Text("\(input5,specifier: "%.2f")  \(inputUnit.id)").padding()
+                            //                                        Text(input.formatted())
+                            //                                        Text(inputUnit.id.capitalized)
+                            Spacer()
+                            
+                            Image(systemName: "equal").foregroundColor(Color("AppColor"))
+                            Spacer()
+                            
+                            Text(result(input: input5, inputUnit: inputUnit, outputUnit: outputUnit).capitalized)
+                        }
+                    }
+                    
+                    VStack{
+                        
+                        HStack {
+                            
+                            
+                            
+                            Text("\(input6,specifier: "%.2f")  \(inputUnit.id)").padding()
+                            //                                        Text(input.formatted())
+                            //                                        Text(inputUnit.id.capitalized)
+                            Spacer()
+                            
+                            Image(systemName: "equal").foregroundColor(Color("AppColor"))
+                            Spacer()
+                            
+                            Text(result(input: input6, inputUnit: inputUnit, outputUnit: outputUnit).capitalized)
+                        }
+                    }
+                    
+                }
+                // .scaledToFill()
+                .padding()
+       
+                .font(.custom("footnote", size: 16))
+
+            }
+            .listStyle(.insetGrouped)
+            
+ 
+            
+        }
+        .toolbar{
             ToolbarItemGroup(placement: .keyboard) {
                 Button("Done"){
                     inputFocused = false
-
+                    
                 }
             }
-
+            
         }
         
         
@@ -373,7 +358,7 @@ struct UnitConverterView: View {
             
             
         }
-
+        
         
     }
     init() {
@@ -381,7 +366,7 @@ struct UnitConverterView: View {
         formatter.unitOptions = .providedUnit
         formatter.unitStyle = .medium
     }
-
+    
 }
 func result(input: Double, inputUnit: Dimension, outputUnit: Dimension ) -> String {
     let formatter: MeasurementFormatter

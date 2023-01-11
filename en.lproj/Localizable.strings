@@ -15,3 +15,16 @@
 "Temperature" = "Temperature" ;
 "Time" = "Time" ;
 "Volume" = "Volume" ;
+
+"UAE" = "UAE" ;
+"EUR" = "EUR" ;
+"USD" = "USD" ;
+"SAR" = "SAR" ;
+"EGP" = "EGP" ;
+"TRY" = "TRY" ;
+
+
+"Switch between 2 countries you picked" = "Switch between 2 countries you picked" ;
+"Switch between 2 units you picked" = "Switch between 2 units you picked" ;
+"Decrease Amount by 1" = "Decrease Amount by 1" ;
+"Increase Amount by 1" = "Increase Amount by 1" ;

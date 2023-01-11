@@ -15,3 +15,15 @@
 "Time" = "وقت" ;
 "Volume" = "كمية" ;
 
+"UAE" = "درهم إمراتي" ;
+"EUR" = "يورو" ;
+"USD" = "دولار امريكي" ;
+"SAR" = "ريال سعودي" ;
+"EGP" = "جنية مصري" ;
+"TRY" = "ليرة تركية" ;
+
+
+"Switch between 2 countries you picked" = "التبديل بين الدولتين" ;
+"Switch between 2 units you picked" = "التبديل بين الوحدتين" ;
+"Decrease Amount by 1" = "تقليل العدد بمقدار واحد";
+"Increase Amount by 1" = "زيادة العدد بمقدار واحد" ;
