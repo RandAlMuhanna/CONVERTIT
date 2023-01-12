@@ -19,7 +19,7 @@ Provide help to all people to convert units and currencies in easy and clear way
 ### Sultion Concept
 Build an app that facilitates converting currencies and measurements.
 
-# Technolgy and Tools 
+# Technologies and Tools 
 - Foundation library
 -  Localization 
 - Acssablity
