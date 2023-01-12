@@ -42,7 +42,7 @@ Build an app that facilitates converting currencies and measurements.
 # Team
 
  #### Coders
- <a href="https://www.linkedin.com/in/randalmuhanna/">Rand AlMuhanna</a> - <a href="https:https://www.linkedin.com/in/haneen-behery-3106b8211">Haneen Behery</a>
+ <a href="https://www.linkedin.com/in/randalmuhanna/">Rand AlMuhanna</a> - <a href="https://www.linkedin.com/in/haneen-behery-3106b8211/">Haneen Behery</a>
  
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
