@@ -19,10 +19,12 @@ Provide help to all people to convert units and currencies in easy and clear way
 ### Sultion Concept
 Build an app that facilitates converting currencies and measurements.
 
-# Technologies and Tools 
+# Technologies  
 - Foundation library
 -  Localization 
 - Acssablity
+
+#Tools
 - [![SwiftUI][SwiftUI-img]][SwiftUI-url]   
 - [![Sketch][Sketch-img]][Sketch-url] 
 - [![Figma][Figma-img]][Figma-url]  
