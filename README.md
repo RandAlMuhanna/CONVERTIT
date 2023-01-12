@@ -24,7 +24,7 @@ Build an app that facilitates converting currencies and measurements.
 -  Localization 
 - Acssablity
 
-#Tools
+# Tools
 - [![SwiftUI][SwiftUI-img]][SwiftUI-url]   
 - [![Sketch][Sketch-img]][Sketch-url] 
 - [![Figma][Figma-img]][Figma-url]  
