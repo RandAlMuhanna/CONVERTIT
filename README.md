@@ -7,17 +7,27 @@
 
 
 # Overveiw
-CONVERTIT is an iOS app allows people to convert currencies and measurements.
+CONVERTIT is an iOS app allows people to convert currencies and uints.
 
-### Proposed Solution
+### Challenge Statment
+Provide help to all people to convert units and currencies in easy and clear way .
+
+### Sultion Concept
 Build an app that facilitates converting currencies and measurements.
 
-### Problem Statment
-Provide help to people to convert converting in easy and clear way .
+# Technolgy and Tools 
+- Foundation library
+-  Localization 
+- Acssablity
+- [![SwiftUI][SwiftUI-img]][SwiftUI-url]   
+- [![Sketch][Sketch-img]][Sketch-url] 
+- [![Figma][Figma-img]][Figma-url]  
 
 # User stories
 - The user wants to Convert Units measurements.
 - The user wants to Convert Currencies.
+- user wants to convert language 
+- User wants to use voiceover accessiblity 
 
 # Success Criteria
 - Project is completed on time
@@ -29,13 +39,10 @@ Provide help to people to convert converting in easy and clear way .
 - English
 
 
-# Tools
-[![SwiftUI][SwiftUI-img]][SwiftUI-url]   [![Sketch][Sketch-img]][Sketch-url]  [![Figma][Figma-img]][Figma-url]  
-
 # Team
 
  #### Coders
- <a href="https://www.linkedin.com/in/randalmuhanna/">Rand AlMuhanna</a> - Haneen Behery 
+ <a href="https://www.linkedin.com/in/randalmuhanna/">Rand AlMuhanna</a> - <a href="https:https://www.linkedin.com/in/haneen-behery-3106b8211">Haneen Behery</a>
  
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
