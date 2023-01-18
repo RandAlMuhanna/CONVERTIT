@@ -11,7 +11,7 @@
 
 
 # Overveiw
-CONVERTIT is an iOS app allows people to convert currencies and uints.
+CONVERTIT is an iOS app allows people to convert currencies and units.
 
 ### Challenge Statment
 Provide help to all people to convert units and currencies in easy and clear way .
