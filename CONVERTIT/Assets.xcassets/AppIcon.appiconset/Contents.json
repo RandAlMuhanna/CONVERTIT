@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "ConvertITicon1024.png",
+      "filename" : "ConvertITicon1024WithoutAlpha.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
