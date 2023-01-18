@@ -1,37 +1,54 @@
 # CONVERTIT
 
+![ConvertITAppReview 001](https://user-images.githubusercontent.com/110944327/213163715-77e5449f-4bda-4a8d-a32e-defcd3cceef1.jpeg)
+
+
+
 <div>
 <h3><img align="left" width="100" height="100" src="LogoConverteIT.png"> <br/> CONVERTIT <br/>
-<a href="https://drive.google.com/file/d/1voRDPYBD59nTCgkxK2VCdDymXtrjr1hE/view?usp=share_link">Demo</a> <br/> <br/> </h3>   
+<a href="https://drive.google.com/file/d/1TkSiwsASOTphfeZM4T8oiO9hCLCrYGo7/view?usp=sharing">Demo</a> <br/> <br/> </h3>   
   </div>   
 
 
 # Overveiw
-CONVERTIT is an iOS app allows people to convert currencies and measurements.
+CONVERTIT is an iOS app allows people to convert currencies and units.
 
-### Proposed Solution
+### Challenge Statment
+Provide help to all people to convert units and currencies in easy and clear way .
+
+### Sultion Concept
 Build an app that facilitates converting currencies and measurements.
 
-### Problem Statment
-Provide help to people to convert converting in easy and clear way .
+# Technologies  
+- Foundation library
+-  Localization 
+- Acssablity
+
+# Tools
+- [![SwiftUI][SwiftUI-img]][SwiftUI-url]   
+- [![Sketch][Sketch-img]][Sketch-url] 
+- [![Figma][Figma-img]][Figma-url]  
 
 # User stories
 - The user wants to Convert Units measurements.
 - The user wants to Convert Currencies.
+- user wants to convert language 
+- User wants to use voiceover accessiblity 
 
 # Success Criteria
 - Project is completed on time
 - Project meet the functionals requirements
 - Project team satisfaction target is achieved
 
+# Languages
+- Arabic
+- English
 
-# Tools
-[![SwiftUI][SwiftUI-img]][SwiftUI-url]   [![Sketch][Sketch-img]][Sketch-url]  [![Figma][Figma-img]][Figma-url]  
 
 # Team
 
  #### Coders
- <a href="https://www.linkedin.com/in/randalmuhanna/">Rand AlMuhanna</a> - Haneen Behery 
+ <a href="https://www.linkedin.com/in/randalmuhanna/">Rand AlMuhanna</a> - <a href="https://www.linkedin.com/in/haneen-behery-3106b8211/">Haneen Behery</a>
  
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
