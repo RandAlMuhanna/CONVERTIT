@@ -1,6 +1,6 @@
 # CONVERTIT
 
-![ConvertITRand 001](https://user-images.githubusercontent.com/110944327/212821617-ae4fca8c-f8d7-4824-b105-c61e316b22d1.jpeg)
+![ConvertITAppReview 001](https://user-images.githubusercontent.com/110944327/213163715-77e5449f-4bda-4a8d-a32e-defcd3cceef1.jpeg)
 
 
 
